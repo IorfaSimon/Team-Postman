@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "6d4cc42e-a0cd-4e8b-8c68-6d1af5332034",
+		"name": "Team Postman Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25856506"
+	},
+	"item": [
+		{
+			"name": "https://academy.testifyltd.com/courses/test-automation-simplified",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name should have an OK string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://academy.testifyltd.com/courses/test-automation-simplified",
+					"protocol": "https",
+					"host": [
+						"academy",
+						"testifyltd",
+						"com"
+					],
+					"path": [
+						"courses",
+						"test-automation-simplified"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
