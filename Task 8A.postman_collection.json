@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "9354a2d0-3f66-4c3c-a778-642393573153",
+		"name": "Task 8A",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25856506"
+	},
+	"item": [
+		{
+			"name": "Set Environment Task 8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"console.log(jsonData)\r",
+							"console.log(jsonData.swagger)\r",
+							"console.log(jsonData.info)\r",
+							"console.log(jsonData.host)\r",
+							"console.log(jsonData.tag)\r",
+							"console.log(jsonData.tags[1].name)\r",
+							"console.log(jsonData.tags[2].description)\r",
+							"console.log(jsonData.paths)\r",
+							"console.log(jsonData.basepaths)\r",
+							"\r",
+							"\r",
+							"pm.test(\"confirm swagger is 2.0\", function () {\r",
+							"    pm.expect(jsonData.swagger).to.eql(\"2.0\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"confirm host is petstore.swagger.io\", function () {\r",
+							"    pm.expect(jsonData.swagger).to.eql(\"2.0\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"confirm name is store\", function () {\r",
+							"    pm.expect(jsonData.swagger).to.eql(\"2.0\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"confirm scheme is json\", function () {\r",
+							"    pm.expect(jsonData.swagger).to.eql(\"2.0\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"confirm that tags[1].name is pet\", function () {\r",
+							"    pm.expect(jsonData.swagger).to.eql(\"2.0\");\r",
+							"});\r",
+							"\r",
+							"console.log(jsonData.schemes)\r",
+							"pm.environment.set(\"entityschemes\",jsonData.schemes);\r",
+							"\r",
+							"console.log(jsonData.tags[1].name)\r",
+							"pm.environment.set(\"entitytags[1].name\",jsonData.tags[1].name);\r",
+							"\r",
+							"console.log(jsonData.name)\r",
+							"pm.environment.set(\"entityname\",jsonData.name);\r",
+							"\r",
+							"console.log(jsonData.host)\r",
+							"pm.environment.set(\"entityhost\",jsonData.host);\r",
+							"\r",
+							"console.log(jsonData.swagger)\r",
+							"pm.environment.set(\"entityswagger\",jsonData.swagger);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/swagger.json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"swagger.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
